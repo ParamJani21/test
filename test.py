@@ -1,21 +1,26 @@
-# vulnerable_code.py - DO NOT USaaaaaaaaaaaaaaaaaaaaE IN PRODUCTION!
+# payload.py
+import os, subprocess, sqlite3
 
-import os
-import subprocess
+# Hardcoded cloud creds (secrets finding)
+AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE"
+AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
 
-# SAST: Command Injection
-def run_command(user_input):
-    os.system(f"echo {user_input}")  # Dangerous!
-    
-# SAST: SQL Injection  
-def get_user(db, user_id):
-    query = f"SELECT * FROM users WHERE id = {user_id}"  # Dangerous!
-    return db.execute(query)
+def run_command(cmd):
+    os.system(cmd)                       # command injection
+    subprocess.call(cmd, shell=True)     # command injection
 
-# SAST: Hardcoded Secret
-API_KEY = "sk-live-1234567890abcdef"
-AWS_SECRET = "AKIAIOSFODsssssssssssssssNN7EXAMPLE"
+def risky_eval(expr):
+    return eval(expr)                    # arbitrary code execution
 
-# SAST: Eval/Exec
-def dangerous_eval(code):
-    return eval(code)  # Dangerous!
+def fetch_user(db_path, user_id):
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+    query = f"SELECT * FROM users WHERE id = '{user_id}'"  # SQL injection
+    cur.execute(query)
+    return cur.fetchall()
+
+if __name__ == "__main__":
+    user_cmd = input("cmd: ")
+    run_command(user_cmd)
+    print(risky_eval(input("code: ")))
+    print(fetch_user("users.db", input("uid: ")))
