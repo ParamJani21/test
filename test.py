@@ -1,21 +1,19 @@
-# vulnerable_code.py - DO NOT USaaaaaaaaaaaaaaaaaaaaE IN PRODUCTION!
-
+# hackme.py - Security test file
 import os
 import subprocess
 
-# SAST: Command Injection
-def run_command(user_input):
-    os.system(f"echo {user_input}")  # Dangerous!
-    
-# SAST: SQL Injection  
-def get_user(db, user_id):
-    query = f"SELECT * FROM users WHERE id = {user_id}"  # Dangerous!
-    return db.execute(query)
+# Command injection vulnerability
+user_input = input("Enter command: ")
+os.system(user_input)
 
-# SAST: Hardcoded Secret
-API_KEY = "sk-live-1234567890abcdef"
-AWS_SECRET = "AKIAIOSFODsssssssssssssssNN7EXAMPLE"
+# Hardcoded AWS credentials  
+AWS_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE"
+AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
 
-# SAST: Eval/Exec
-def dangerous_eval(code):
-    return eval(code)  # Dangerous!
+# SQL injection
+def get_user(user_id):
+    query = f"SELECT * FROM users WHERE id = '{user_id}'"
+    return query
+
+# Dangerous eval
+eval(input("Code: "))
