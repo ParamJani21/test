@@ -1,0 +1,12 @@
+{
+  "name": "vulnerable-node-app",
+  "version": "1.0.0",
+  "description": "A sample app with intentionally vulnerable dependencies for testing Trivy SCA.",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "4.17.15",
+    "express": "4.17.1",
+    "axios": "0.18.0",
+    "minimist": "1.2.0"
+  }
+}
