@@ -1,5 +1,5 @@
-# vulnerable_code.py - DO NOT USaaaaaaaaasssssssssssssaaaaaaaaaaaE IN PRODUCTION!
-
+# vulnerable_code.py - DO NOT USaaaaaaaaaaaaasssssssssssssaaaaaaaaaaaE IN PRODUCTION!
+#admin password is admin
 import os
 import subprocess
 
