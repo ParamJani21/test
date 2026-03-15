@@ -1,5 +1,5 @@
 # vulnerable_code.py - DO NOT USaaaaaaaaasssssssssssssaaaaaaaaaaaE IN PRODUCTION!
-#admin:password 
+#admin:password use it for production. change it to admin:admin for devstage...!
 import os
 import subprocess
 
