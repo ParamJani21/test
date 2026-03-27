@@ -13,7 +13,7 @@ def get_user(db, user_id):
     return db.execute(query)
 
 # SAST: Hardcoded Secret
-API_KEY = "sk-live-1234567890abcdef"
+API_KEY = "aaaaaaaaaaaaaaaaaaaaask-live-1234567890abcdef"
 AWS_SECRET = "AKIAIOSFODsssssssssssssssNN7EXAMPLE"
 
 # SAST: Eval/Exec
