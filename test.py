@@ -14,7 +14,7 @@ def get_user(db, user_id):
 
 # SAST: Hardcoded Secret
 API_KEY = "sk-live-1234567890abcdef"
-AWS_SECRET = "AKIAIOSFODsssssssssssssssNN7EXAMPLE"
+AWS_SECRET = "AKIAIOSFODssssaaaaaaaaaaaaaaaaasssssssssssNN7EXAMPLE"
 
 # SAST: Eval/Exec
 def dangerous_eval(code):
