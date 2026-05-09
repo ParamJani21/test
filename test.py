@@ -1,4 +1,4 @@
-# vulnerable_code.py - DO NOT USaaaaaaaaasssssssssssssaaaaaaaaaaaE IN PRODUCTION!
+# vulnerable_code.py - DO NOT USaaaaaaaaasssssssssssssaaaaaaaaaaaaE IN PRODUCTION!
 #admin:password 
 import os
 import subprocess
